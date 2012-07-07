@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+	<title>My Page</title> 
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.1.1/sencha-touch-all-debug.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="http://extjs.cachefly.net/touch/sencha-touch-2.0.1.1/resources/css/sencha-touch.css" type="text/css">
+    <script type="text/javascript">
+ 
+Ext.application({
+    name: 'Sencha',
+
+    launch: function() {
+        Ext.Ajax.request({
+            url: '/q',
+            success: function(response, opts) {
+                var obj = Ext.decode(response.responseText);
+                console.dir(obj);
+                
+                var store = new Ext.data.TreeStore({
+                    id:'QuestionStore',
+                    fields: ['t', 'children'],
+                    data: obj,
+                    proxy : 'memory'
+                });
+                
+                Ext.create("Ext.tab.Panel", {
+                    fullscreen: true,
+                    tabBarPosition: 'bottom',
+        
+                    items: [
+                        {
+                            title: 'Home',
+                            iconCls: 'home',
+                            html: [
+                                '<img src="http://staging.sencha.com/img/sencha.png" />',
+                                '<h1>Welcome to the Roshe project</h1>',
+                                '<div>',obj.q,'</div>'
+                            ].join("")
+                        }
+                    ]
+                });
+            },
+            failure: function(response, opts) {
+                console.log('server-side failure with status code ' + response.status);
+            }
+        });
+    }
+});
+
+        </script>
+</head> 
+<body></body>
+</html>

@@ -1,0 +1,19 @@
+{
+    "t":"First question",
+    "children":[
+        {
+            "t":"First response",
+            "children":{
+                "t":"Question about first response",
+                "children":[
+                    {
+                        "t":"Response to question about first response"
+                    }
+                ]
+            }
+        },
+        {
+            "t":"Second response"
+        }
+    ]
+}
