@@ -1,19 +1,16 @@
+
+
 {
-    "t":"First question",
-    "children":[
+    "q":"First question",
+    "type":"selectfield",
+    "rs":[
         {
-            "t":"First response",
-            "children":{
-                "t":"Question about first response",
-                "children":[
-                    {
-                        "t":"Response to question about first response"
-                    }
-                ]
-            }
+            "q":"First response",
+            "type":"textfield"
         },
         {
-            "t":"Second response"
+            "q":"Second response",
+            "type":"textfield"
         }
     ]
 }
